@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --mainColor: #222;
+  --mainwhidth: 6px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.note {
+  height: 100%;
+  width: 24%;
+  text-align: center;
+}
+.note div {
+  height: 400px;
+  text-align: center;
+  color: #009688;
+  background-color: #f8f8f8;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+@media (max-width: 667px) {
+  .main-contenar {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .hangMan {
+    width: 100%;
+    margin-top: -30px;
+    /* height: 300px; */
+  }
+  .hangMan-drow {
+    height: 100%;
+  }
+  /* .hangMan .text h1,
+  .hangMan .text hr {
+    z-index: 4;
+    margin-bottom: -30px;
+    background-color: #eee;
+    order: 1;
+  } */
+  .theDrow {
+    width: 100%;
+    margin-left: -85px;
+    margin-top: -100px;
+    position: relative;
+  }
+  .theDrow::before {
+    content: "hangman";
+    text-align: center;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    font-size: 20px;
+    border-bottom: 1px solid var(--mainColor);
+    font-weight: bold;
+  }
+  .x-word span {
+    font-size: 35px !important;
+  }
+  .the-man {
+    margin-right: -105px;
+    left: 354px !important;
+  }
+  .word {
+    width: 100%;
+    margin-top: -60px;
+  }
+  .word .titel h1,
+  .word .titel h1 span {
+    font-size: 20px;
+  }
+  .word .letters {
+    padding: 5px;
+    gap: 6px;
+  }
+  .word .letters .box {
+    padding: 10px 13px;
+    font-size: 18px;
+  }
+  .note {
+    width: 100%;
+  }
+  .note div {
+    height: 100px;
+  }
+  footer {
+    font-size: 12px;
+  }
+}
+
+.main-contenar {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  margin: 40px auto;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.hangMan {
+  text-align: center;
+}
+.hangMan-drow {
+  background-color: #eee;
+  height: 400px;
+  margin: 20px auto;
+  position: relative;
+}
+.hangMan-drow.error-1 .the-stand {
+  display: block;
+}
+.hangMan-drow.error-2 .the-hang {
+  display: block;
+}
+.hangMan-drow.error-3 .the-rope {
+  display: block;
+}
+.hangMan-drow.error-4 .head {
+  display: block;
+}
+.hangMan-drow.error-5 .body {
+  display: block;
+}
+.hangMan-drow.error-6 .hands {
+  display: block;
+}
+.hangMan-drow.error-7 .legs {
+  display: block;
+}
+.theDrow {
+  position: relative;
+  width: 500px;
+  height: 90%;
+  left: -60px;
+}
+.the-stand {
+  width: 120px;
+  height: var(--mainwhidth);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--mainColor);
+  display: none;
+}
+.the-stand::before {
+  content: "";
+  width: var(--mainwhidth);
+  height: 290px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--mainColor);
+}
+.the-hang {
+  width: 120px;
+  height: var(--mainwhidth);
+  position: absolute;
+  top: 80px;
+  right: 68px;
+  transform: translateX(-50%);
+  background-color: var(--mainColor);
+  display: none;
+}
+.the-hang::before {
+  content: "";
+  width: var(--mainwhidth);
+  height: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--mainColor);
+}
+.the-rope {
+  width: 85px;
+  height: 85px;
+  border: var(--mainwhidth) dashed var(--mainColor);
+  border-radius: 50%;
+  position: absolute;
+  top: 110px;
+  right: 87px;
+  display: none;
+}
+.the-man {
+  position: absolute;
+  left: 441px;
+  top: 0;
+}
+.head {
+  width: 60px;
+  height: 60px;
+  border: var(--mainwhidth) solid var(--mainColor);
+  border-radius: 50%;
+  position: absolute;
+  top: 130px;
+  right: 100px;
+  display: none;
+}
+.body {
+  content: "";
+  width: var(--mainwhidth);
+  height: 100px;
+  position: absolute;
+  top: 189px;
+  right: 128px;
+  background-color: var(--mainColor);
+  display: none;
+}
+hr {
+  border: 1px solid #eee;
+}
+.hands {
+  display: none;
+}
+.hands::before {
+  content: "";
+  width: var(--mainwhidth);
+  height: 47px;
+  position: absolute;
+  top: 200px;
+  transform: rotate(40deg);
+  right: 112px;
+  background-color: var(--mainColor);
+}
+.hands::after {
+  content: "";
+  width: var(--mainwhidth);
+  height: 47px;
+  position: absolute;
+  top: 200px;
+  transform: rotate(-40deg);
+  right: 144px;
+  background-color: var(--mainColor);
+}
+.legs {
+  display: none;
+}
+.legs::before {
+  content: "";
+  width: var(--mainwhidth);
+  height: 47px;
+  position: absolute;
+  top: 282px;
+  transform: rotate(-40deg);
+  right: 112px;
+  background-color: var(--mainColor);
+}
+.legs::after {
+  content: "";
+  width: var(--mainwhidth);
+  height: 47px;
+  position: absolute;
+  top: 283px;
+  transform: rotate(40deg);
+  right: 144px;
+  background-color: var(--mainColor);
+}
+.word {
+  flex: 1;
+  text-align: center;
+  margin: 0 auto;
+  /* min-width: 400px; */
+}
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 20px;
+}
+.letters.finish {
+  pointer-events: none;
+}
+.letters .box {
+  padding: 10px 20px;
+  font-size: 35px;
+  color: #fff;
+  background-color: #009688;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.word .titel span {
+  color: #a84d4d;
+  font-size: 35px;
+  font-weight: bold;
+}
+.clicked {
+  background-color: var(--mainColor);
+  opacity: 0.23;
+  pointer-events: none;
+}
+.x-word {
+  background-color: #f8f8f8;
+  display: flex;
+  margin: 20px auto;
+  width: 80%;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.x-word span {
+  background-color: #eee;
+  border-bottom: 2px solid var(--mainColor);
+  width: 80px;
+  height: 80px;
+  font-size: 60px;
+  text-align: center;
+  line-height: 80px;
+}
+.x-word span.space {
+  background: none;
+  border: none;
+  text-align: center;
+  line-height: 80px;
+}
+.x-word span.space::after {
+  content: "-";
+  text-align: center;
+  font-size: 60px;
+}
+.gameOver,
+.willDone,
+.playagain {
+  font-size: 40px;
+  text-align: center;
+  margin: 30px auto;
+}
+.gameOver {
+  color: #a84d4d;
+}
+.willDone {
+  color: #009688;
+}
+.willDone span,
+.gameOver span {
+  display: block;
+  color: var(--mainColor);
+}
+.playagain {
+  color: #009688;
+  border: 3px solid #009688;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 8px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.playagain:hover {
+  background-color: #009688;
+  color: #fff;
+}
+
+footer {
+  height: 70px;
+  line-height: 70px;
+  color: var(--mainColor);
+  font-size: 25px;
+  text-align: center;
+}
